@@ -1,1 +1,3 @@
-# serverless-project-group-16
+# Serverless Data Processing Project
+
+## Group 16
