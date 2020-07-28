@@ -7,18 +7,6 @@ os.environ[
 project_id = "api-8566414966874230052-395627"
 topic_id = "groupchat"
 sub_id = "sub_grpchat"
-# PUBLISHER
-def publish():
-
-    publisher = pubsub_v1.PublisherClient()
-    topic_name = 'projects/{project_id}/topics/{topic}'.format(
-        project_id=project_id,
-        topic=topic_id,  # Set this to something appropriate.
-    )
-    # publisher.create_topic(topic_name)
-
-    publisher.publish(topic_name, b'My first message!')
-
 
 # SUBSCRIBER
 def subscribe():
@@ -45,5 +33,4 @@ def subscribe():
         future.cancel()
 
 if __name__ == "__main__":
-    # publish()
     subscribe()
