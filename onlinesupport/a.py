@@ -3,7 +3,7 @@ import logging
 import traceback
 from os import environ
 import json
-
+// PyMsql used
 endpoint='virtualhelper.cy3azzeijucd.us-east-1.rds.amazonaws.com'
 port=3306
 dbuser='admin'
