@@ -49,7 +49,6 @@ function login() {
         },
         "data": data,
     };
-    console.log("data posted succussfully")
     $.ajax(config).done(function (response) {
         console.log(response.user)
         if (response.statusCode == 200) {
