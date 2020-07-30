@@ -2,9 +2,9 @@ import json
 import boto3
 import urllib.parse
 
-aws_access_key_id="ASIASEGXGL67NB3GHDFM"
-aws_secret_access_key="yrTBeOMdkQVcq1x53+6jV3vfM+9CNegVdPtt/mfz"
-aws_session_token="FwoGZXIvYXdzEEsaDEkASh+L6K2/86hHIyK+AQFM5AanNBDG91H89v5f92zndwJWEPs9ArMsgbA8HF/GkZVaDr0p9j//r5CSBZjkz07rlYHvi8pIIHxqfKTOepCVkbBa7uWclkghEtJTnHV3xbMMesUfh1vHFzhXXcDR/ujozLcS6E8sRdxVAdxS0utXBkxHKCpfWTGE+X11WBVCwDKuo+7s+gmEoCOduXGH5PWsRC1ihm0Hn5eZSg0NmJLw9hrrJAPrN/XjcZv7Dh+ArSlJoofbTPDHPj8J5Pcorr6B+QUyLbgPeU9CH8DywetC4kOHn5ELppzUaALbSy8+wMQdXeeAsGcMItTSwmubV7Oj0w=="
+aws_access_key_id="ASIASEGXGL67KO64JZWI"
+aws_secret_access_key="WsJZ5r5q2GYvkW1gb1E7rmrLr2OX/KDMw4Lttb98"
+aws_session_token="FwoGZXIvYXdzEGUaDN/jgOzSy12841bGHCK+AUE5Z7L/wrsvy0FEASihBOxspBRvAirVMygqANSAFJa7bzS1kVp+u9c+lj2FqdBxPRD/DuduNsAkpOT2/vQtRERK4UUVt7B7YH2TdpOu6gITWWqS7C1Vm+1yt5X7l3a/hz2OfEvBxJ8s3JfgS/pA+2cX1cBKWoElypts7naVAI7gmimt09pHzpvsxBJWXomzqxG8yCIK2FSFBXPtplWOMALOwZ8bxm8pgqNFfDW9jiShlfDPrcg7KjBH1m28W54ohKqH+QUyLU0bDWcA+xhG5IO9t00dj25SoFSKdV6MXisid9eAo1CBeTQ9+5+028SQ8n7TXA=="
 
 s3 = boto3.client('s3', aws_access_key_id=aws_access_key_id,
                     aws_secret_access_key=aws_secret_access_key,
@@ -36,6 +36,6 @@ def lambda_handler(event, context):
     print(type(result))
     final = {"msg":text['msg'],"Sentiment":result['Sentiment'],"score":result['SentimentScore']}
 
-    s3.put_object(Bucket='comprehandanalysis', Key=key, Body=str(final))
+    s3.put_object(Bucket='comprehandanalysis', Key=key, Body=json.dumps(final))
 
     print("done")

@@ -37,6 +37,11 @@ def publish(input):
     os.remove(name + ".json")
 
 if __name__ == "__main__":
+    print("USER: Vishvesh | Status: online")
     while True:
+        print()
+        print("Enter msg:")
         input1 = input()
         publish(input1)
+        print("msg sent")
+
