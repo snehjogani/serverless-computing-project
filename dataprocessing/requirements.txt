@@ -4,4 +4,3 @@ numpy==1.16.4
 matplotlib
 wordcloud==1.7.0
 stop-words==2018.7.23
-

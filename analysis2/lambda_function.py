@@ -2,10 +2,9 @@ import json
 import boto3
 import urllib.parse
 
-aws_access_key_id="ASIASEGXGL67KO64JZWI"
-aws_secret_access_key="WsJZ5r5q2GYvkW1gb1E7rmrLr2OX/KDMw4Lttb98"
-aws_session_token="FwoGZXIvYXdzEGUaDN/jgOzSy12841bGHCK+AUE5Z7L/wrsvy0FEASihBOxspBRvAirVMygqANSAFJa7bzS1kVp+u9c+lj2FqdBxPRD/DuduNsAkpOT2/vQtRERK4UUVt7B7YH2TdpOu6gITWWqS7C1Vm+1yt5X7l3a/hz2OfEvBxJ8s3JfgS/pA+2cX1cBKWoElypts7naVAI7gmimt09pHzpvsxBJWXomzqxG8yCIK2FSFBXPtplWOMALOwZ8bxm8pgqNFfDW9jiShlfDPrcg7KjBH1m28W54ohKqH+QUyLU0bDWcA+xhG5IO9t00dj25SoFSKdV6MXisid9eAo1CBeTQ9+5+028SQ8n7TXA=="
-
+aws_access_key_id="ASIASEGXGL67D75UFZZW"
+aws_secret_access_key="jCo+WwJdLqjUGLXXbdXdHTRQkdK+g6tqMkOFCEIq"
+aws_session_token="FwoGZXIvYXdzEID//////////wEaDOPcpxUznlah3TimkyK+ARb/xiDsXuKJDqMIZWZF5wm0nZSBLRGyR5AkfFNCz4afkzZSIzYjoazoul2EjJ7zl04JQW8d1L9zDWSKSc0T4tM0iTGtIng7+OhMtKXS52Wph05tLKwMFK/8Fo7Ddvm6Qo3uQuM7idPQxFfVb0qUX6dtNC0ggZUV+LAqQpJQcVhZ6e1Wb/ADjH1KiBP7rkhWy3lRrMmgxhqwjlnjr4Jp+sBxR6+iLzKGZQ8ssDNtrycH0AhCdDSqEed2uZqpsmEo0I6N+QUyLdywdBrHJ98e25PNAk/kHZpYYILSZXsbsjOBTpvaOfAZUjoWjwqkyA5XCSKsvA=="
 s3 = boto3.client('s3', aws_access_key_id=aws_access_key_id,
                     aws_secret_access_key=aws_secret_access_key,
                     aws_session_token=aws_session_token)
