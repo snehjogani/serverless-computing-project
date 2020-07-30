@@ -5,7 +5,6 @@ function register() {
     var password = $('#password').val();
     var gender = $('#gender').val();
     var instituteName = $('#instituteName').val();
-    var role = $('#role').val();
     var question = $('#question').val();
     var answer = $('#answer').val();
     console.log(name, email, password, gender, instituteName, role, question, answer)
@@ -15,7 +14,6 @@ function register() {
         "password": password,
         "gender": gender,
         "instituteName": instituteName,
-        "role": role,
         "question": question,
         "answer": answer
     })
@@ -34,7 +32,6 @@ function register() {
     }).fail(function (error) {
         if (error.responseJSON.message) {
             alert(error.responseJSON.message);
-
         } else {
             alert(error.responseJSON.error);
         }
