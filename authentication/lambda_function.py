@@ -5,10 +5,10 @@ import hmac
 import hashlib
 import base64
 import re
+import os
 
-COGNITO_USER_POOL_ID = 'us-east-1_LA97mUerk1'
-COGNITO_APP_CLIENT_ID = '66abt1l96uq1io3mi46t4sbuc9'
-COGNITO_APP_CLIENT_SECRET = 'jhd2t5lvo6voue7jbgoe0ur36ba7s33u5k9pd29g6ku1gip9hb4'
+COGNITO_APP_CLIENT_ID = os.environ.get('COGNITO_APP_CLIENT_ID')
+COGNITO_APP_CLIENT_SECRET = os.environ.get('COGNITO_APP_CLIENT_SECRET')
 
 
 def generate_hash(email):

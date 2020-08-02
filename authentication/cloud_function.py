@@ -1,14 +1,15 @@
 from google.cloud import datastore
 import json
 import pymysql
+import os
+
+host = os.environ.get('host')
+user = os.environ.get('user')
+password = os.environ.get('password')
+db = os.environ.get('db')
 
 
 def authenticate(req):
-    host = 'database-1.cogkys8dvclp.us-east-1.rds.amazonaws.com'
-    user = 'admin'
-    password = '12345678'
-    db = 'serverless'
-
     res = {}
     headers = {}
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'

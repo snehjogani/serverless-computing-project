@@ -1,14 +1,15 @@
 import pymysql
 import json
+import os
+
+host = os.environ.get('host')
+user = os.environ.get('user')
+password = os.environ.get('password')
+db = os.environ.get('db')
 
 
 def get_user_list(req):
     print('Function invoked')
-
-    host = 'database-1.cogkys8dvclp.us-east-1.rds.amazonaws.com'
-    user = 'admin'
-    password = '12345678'
-    db = 'serverless'
 
     res = {}
     headers = {}

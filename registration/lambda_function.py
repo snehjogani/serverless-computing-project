@@ -7,10 +7,14 @@ import hashlib
 import base64
 import boto3
 import botocore.exceptions
+import os
 
-COGNITO_USER_POOL_ID = 'us-east-1_LA97mUerk1'
-COGNITO_APP_CLIENT_ID = '66abt1l96uq1io3mi46t4sbuc9'
-COGNITO_APP_CLIENT_SECRET = 'jhd2t5lvo6voue7jbgoe0ur36ba7s33u5k9pd29g6ku1gip9hb4'
+COGNITO_APP_CLIENT_ID = os.environ.get('COGNITO_APP_CLIENT_ID')
+COGNITO_APP_CLIENT_SECRET = os.environ.get('COGNITO_APP_CLIENT_SECRET')
+host = os.environ.get('host')
+user = os.environ.get('user')
+password = os.environ.get('password')
+db = os.environ.get('db')
 
 
 def generate_hash(email):
@@ -23,11 +27,6 @@ def generate_hash(email):
 
 
 def lambda_handler(event, context):
-    host = 'database-1.cogkys8dvclp.us-east-1.rds.amazonaws.com'
-    user = 'admin'
-    password = '12345678'
-    db = 'serverless'
-
     try:
         # connect to RDS instance
         connection = pymysql.connect(
