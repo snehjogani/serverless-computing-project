@@ -11,12 +11,13 @@ COGNITO_APP_CLIENT_ID = '66abt1l96uq1io3mi46t4sbuc9'
 COGNITO_APP_CLIENT_SECRET = 'jhd2t5lvo6voue7jbgoe0ur36ba7s33u5k9pd29g6ku1gip9hb4'
 
 
-def get_secret_hash(username):
-    msg = username + COGNITO_APP_CLIENT_ID
-    dig = hmac.new(str(COGNITO_APP_CLIENT_SECRET).encode(
-        'utf-8'), msg=str(msg).encode('utf-8'), digestmod=hashlib.sha256).digest()
-    d2 = base64.b64encode(dig).decode()
-    return d2
+def generate_hash(email):
+    # Cognito secret hash generation function. Source: https://medium.com/@houzier.saurav/aws-cognito-with-python-6a2867dd02c6
+    message = email + COGNITO_APP_CLIENT_ID
+    digest = hmac.new(str(COGNITO_APP_CLIENT_SECRET).encode(
+        'utf-8'), msg=str(message).encode('utf-8'), digestmod=hashlib.sha256).digest()
+    secret_hash = base64.b64encode(digest).decode()
+    return secret_hash
 
 
 def lambda_handler(event, context):
@@ -52,7 +53,7 @@ def lambda_handler(event, context):
     try:
         client = boto3.client('cognito-idp')
         authenticate = {'USERNAME': email, 'PASSWORD': password,
-                        "SECRET_HASH": get_secret_hash(email)}
+                        "SECRET_HASH": generate_hash(email)}
         response = client.initiate_auth(
             AuthFlow='USER_PASSWORD_AUTH', AuthParameters=authenticate, ClientId=COGNITO_APP_CLIENT_ID)
         print('response:', response)
