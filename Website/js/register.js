@@ -4,17 +4,17 @@ function register() {
     var email = $('#email').val();
     var password = $('#password').val();
     var gender = $('#gender').val();
-    var institute = $('#instituteName').val();
+    var instituteName = $('#instituteName').val();
     var role = $('#role').val();
     var question = $('#question').val();
     var answer = $('#answer').val();
-    console.log(name, email, password, gender, institute, role, question, answer)
+    console.log(name, email, password, gender, instituteName, role, question, answer)
     var data = JSON.stringify({
         "email": email,
         "name": name,
         "password": password,
         "gender": gender,
-        "institute": institute,
+        "instituteName": instituteName,
         "role": role,
         "question": question,
         "answer": answer
